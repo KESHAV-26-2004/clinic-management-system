@@ -1,0 +1,485 @@
+/*client/src/styles/patients.css */
+/* ================= PATIENTS PAGE ================= */
+
+.patients-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------- TOP GRID ---------- */
+.patients-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+/* ---------- CARDS ---------- */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.card.tall {
+  min-height: 400px;
+}
+
+/* ---------- REGISTER ---------- */
+/* ===== REGISTER BUTTON SIZE FIX ===== */
+.register-card .primary-btn {
+  padding: 12px 12px;    
+  font-size: 15px;        
+  font-weight: 600;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f1f1f1;
+  outline: none;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: var(--muted);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  background: #f1f5f9;
+}
+
+.primary-btn {
+  background: #0f766e;
+  color: #fff;
+  border: 1px solid #0f766e;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.primary-btn:hover {
+  background: #115e59;
+  border-color: #115e59;
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- ACTIVE ---------- */
+.active-patient-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.match-card {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-2px);
+}
+
+.match-card strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.match-card span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Buttons */
+.action-row {
+  display: flex;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.action-row button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Open Profile (Primary Teal) */
+.action-row button:first-child {
+  background: #0f766e;
+  color: #ffffff;
+  border-color: #0f766e;
+}
+
+.action-row button:first-child:hover {
+  background: #115e59;
+  border-color: #115e59;
+}
+
+/* Primary */
+.action-row button:first-child {
+background: var(--primary);
+color: #fff;
+}
+
+/* Secondary */
+.action-row button:last-child {
+background: var(--primary-soft);
+color: var(--primary);
+}
+
+.action-row button:last-child:hover {
+background: #d1fae5;
+}
+
+/* ---------- EMPTY ---------- */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+/* ---------- RECENT TABLE ---------- */
+.recent-patients-card {
+  padding: 20px;
+}
+
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.recent-table thead {
+  background: #f8fafc;
+}
+
+.recent-table th,
+.recent-table td {
+  padding: 12px 14px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: left;              /* 🔥 force left */
+  font-size: 14px;
+}
+
+.recent-table th {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.recent-table td {
+  color: #161d27;
+  font-weight: 500;
+}
+
+.recent-table tr:last-child td {
+  border-bottom: none;
+}
+
+.recent-table th:last-child,
+.recent-table td:last-child {
+  border-right: none;
+}
+
+.recent-table tbody tr:hover {
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+/* ---------- MESSAGE ---------- */
+.info-msg {
+  color: #0f766e;
+  font-weight: 500;
+}
+
+.match-card strong {
+  color: var(--text);
+}
+
+.match-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- ACTIVE GRID ---------- */
+.active-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.active-left {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: inset 0 0 0 1px var(--border);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.active-left h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.phone {
+  font-size: 16px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.active-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.meta-chip {
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- RIGHT STATS ---------- */
+.active-right {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+}
+
+.stat-card span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat-card b {
+  display: block;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.register-msg {
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.patient-profile-page {
+  display: flex;
+  height: 100vh;
+  background: #f8fafc;
+}
+
+.column-left {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+}
+
+.patient-info-card {
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.case-manager-card {
+  flex: 1;
+  overflow-y: auto;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.search {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.actions button,
+.visit-form button {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background: #0f766e;
+  color: white;
+  cursor: pointer;
+}
+
+.actions button:hover,
+.visit-form button:hover {
+  background: #115e59;
+}
+
+.case-card {
+  margin-top: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.badge {
+  background: #16a34a;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+.visit-item {
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.visit-item:hover {
+  background: #f1f5f9;
+}
+
+.column-right {
+  flex: 1;
+  position: relative;
+}
+
+.workspace {
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.focus-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+
+  .patients-top,
+  .active-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .recent-table {
+    min-width: 600px;  /* force horizontal scroll instead of breaking layout */
+  }
+
+  .active-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* Make last stat (date) full width */
+  .active-right .stat-card:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .patients-top {
+    grid-template-columns: 1fr;
+  }
+
+  .active-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .active-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* Make last stat (date) full width */
+  .active-right .stat-card:last-child {
+    grid-column: span 2;
+  }
+
+}

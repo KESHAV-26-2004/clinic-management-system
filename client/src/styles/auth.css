@@ -1,0 +1,193 @@
+/* client/src/styles/auth.css */
+/* PAGE BACKGROUND */
+.auth-page {
+  position: fixed;
+  inset: 0;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 40px 36px;
+  border-radius: 22px;
+}
+
+/* TITLE */
+.auth-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+/* INPUT GROUP */
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+/* INPUT*/
+.auth-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.auth-field input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-field input:focus {
+  outline: none;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+/* SHOW / HIDE PASSWORD BUTTON */
+.show-password-btn {
+  align-self: flex-end;
+  margin-top: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.show-password-btn:hover {
+  text-decoration: underline;
+}
+
+/* OPTIONS */
+.auth-options {
+  font-size: 13px;
+  color: #334155;
+  margin: 10px 0 18px;
+}
+
+/* SIGN IN BUTTON */
+.auth-btn {
+  width: 100%;
+  box-sizing: border-box; /* consistency */
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #0f766e;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background: #115e59;
+}
+
+/* ERROR */
+.auth-error {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #dc2626;
+  text-align: center;
+}
+
+/* FOOTER */
+.auth-footer {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* PASSWORD FIELD WITH EYE ICON */
+.password-field {
+position: relative;
+}
+
+
+.password-field input {
+padding-right: 46px; /* space for eye icon */
+}
+
+
+.password-eye {
+position: absolute;
+right: 14px;
+top: 50%;
+transform: translateY(-50%);
+background: none;
+border: none;
+padding: 0;
+cursor: pointer;
+color: #64748b;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+.password-eye:hover {
+color: #0f766e;
+}
+
+/* Remove ugly focus ring for mouse click */
+.password-eye:focus {
+  outline: none;
+}
+
+/* Keep focus visible for keyboard users */
+.password-eye:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* ===== SHOW / HIDE PASSWORD BUTTON (LOGIN PAGE) ===== */
+
+/* Remove default focus outline on mouse click */
+.show-password-btn:focus {
+  outline: none;
+}
+
+/* Keep clean focus ring for keyboard users */
+.show-password-btn:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.login-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0f766e;
+  background: white;
+}

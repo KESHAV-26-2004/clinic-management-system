@@ -1,0 +1,240 @@
+/* client/src/styles/queue.css */
+
+.queue-page.split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: start; /* 🔥 KEY FIX */
+}
+
+/* ===== SEARCH ===== */
+
+.queue-search-card {
+  margin-bottom: 16px;
+}
+
+/* ================= SEARCH INPUT (GLOBAL) ================= */
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px;          
+  border-radius: 12px;         
+  border: 1px solid var(--border);
+  background: #f1f1f1;         
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  background: #f1f5f9; 
+}
+
+/* ===== MATCH LIST ===== */
+
+.match-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.match-card {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.match-card:hover {
+  background: #f8fafc;
+}
+
+/* ===== TABLE ===== */
+
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.queue-table th,
+.queue-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+}
+
+.queue-table th {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.queue-table tr:hover {
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.queue-table tr.active {
+  background: #e0f2fe;
+}
+
+/* ===== STATUS ===== */
+
+.status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.waiting {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.called {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.in_progress {
+  background: #ecfeff;
+  color: #0f766e;
+}
+
+.status.done {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* ===== RIGHT PANEL ===== */
+
+.queue-right {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 16px;
+}
+
+.empty-state {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.action-row button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-row button.disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn-warning {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-success {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-warning,
+.btn-success {
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== QUEUE ACTION BUTTONS (UNIFIED SIZE) ===== */
+
+.queue-table button {
+  min-width: 80px;        /* 🔥 same width */
+  height: 36px;           /* 🔥 same height */
+  padding: 6px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+  .status {
+    font-size: 10px;      /* smaller */
+    padding: 2px 8px;     /* tighter */
+  }
+
+  .active-meta {
+    margin-bottom: 16px;
+    margin-top: 10px;   /* tighter */
+    gap: 8px;
+  }
+
+  .action-row {
+    margin-top: 30px;   /* reduce space above buttons */
+  }
+
+  .queue-page.split {
+    grid-template-columns: 1fr;
+  }
+
+  .queue-right {
+    position: static;
+  }
+
+  /* 3️⃣ Smaller stat numbers */
+  .active-right .stat-card b {
+    font-size: 16px;
+  }
+
+  .active-right .stat-card span {
+    font-size: 11px;
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .queue-page.split {
+    grid-template-columns: 1fr;
+  }
+
+  .queue-right {
+    position: static;
+  }
+
+  .active-meta {
+    margin-bottom: 16px;
+    margin-top: 10px;   /* tighter */
+    gap: 8px;
+  }
+
+}

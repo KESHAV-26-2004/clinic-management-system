@@ -1,0 +1,230 @@
+/* =========================================================
+   ADMIN PAGE – MATCH PATIENT PROFILE DESIGN SYSTEM
+   ========================================================= */
+
+.admin-page {
+  padding: 16px;
+  background: #f8fafc;
+}
+
+/* ================= CANVAS ================= */
+
+.admin-canvas {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.admin-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ================= INPUTS ================= */
+
+.admin-input,
+.admin-select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f1f1f1;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+}
+
+.admin-input::placeholder {
+  color: #9ca3af;
+}
+
+.admin-input:focus,
+.admin-select:focus {
+  background: #ffffff;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+}
+
+/* ================= BUTTONS ================= */
+
+.admin-btn {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* TEAL (Primary Action) */
+.admin-btn.primary {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.admin-btn.primary:hover {
+  background: #0d5f59;
+}
+
+/* BLUE (Visit-style action) */
+.admin-btn.secondary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.admin-btn.secondary:hover {
+  background: #1d4ed8;
+}
+
+/* DARK GRAY (History / Backup style) */
+.admin-btn.dark {
+  background: #374151;
+  color: #ffffff;
+}
+
+.admin-btn.dark:hover {
+  background: #1f2937;
+}
+
+/* DANGER */
+.admin-btn.danger {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.admin-btn.danger:hover {
+  background: #991b1b;
+}
+
+/* ================= TABLE ================= */
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-table thead {
+  background: #f8fafc;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.admin-table th {
+  font-weight: 600;
+  color: #111827;
+}
+
+.admin-table th:last-child,
+.admin-table td:last-child {
+  border-right: none;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+/* ================= ACTION CELL ================= */
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ================= IMAGE UPLOAD CARD ================= */
+
+.image-upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* Preview Box */
+.upload-preview {
+  max-height: 140px;
+  max-width: 300px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  background: #ffffff;
+}
+
+/* Placeholder */
+.upload-placeholder {
+  width: 300px;
+  height: 120px;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 14px;
+  background: #f8fafc;
+}
+
+/* Actions */
+.upload-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+
+  .admin-page {
+    padding: 0px;
+  }
+
+  /* Stack inputs properly */
+  .admin-canvas .admin-input,
+  .admin-canvas .admin-select,
+  .admin-canvas .admin-btn.primary {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .admin-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-table {
+    min-width: 650px;
+  }
+
+  .admin-actions {
+    flex-wrap: wrap;
+  }
+
+  .admin-canvas .admin-btn.primary {
+    width: 40%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 6px;
+  }
+
+}

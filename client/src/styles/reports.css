@@ -1,0 +1,259 @@
+/* ================= REPORTS PAGE ================= */
+
+.reports-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: #f8fafc;
+}
+
+/* ===== HEADER ===== */
+
+.reports-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reports-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.reports-date {
+  font-size: 13px;
+  color: #3d4047;
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* ===== CANVAS ===== */
+
+.canvas {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.canvas-header {
+  margin-bottom: 14px;
+}
+
+.canvas-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ===== STATS GRID ===== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stats-grid.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.stats-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===== STAT CARD ===== */
+
+.stat-card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* tones */
+.stat-card.success .stat-value {
+  color: #15803d;
+}
+
+.stat-card.warning .stat-value {
+  color: #b45309;
+}
+
+/* ===== STATES ===== */
+
+.loading,
+.error {
+  padding: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .reports-page {
+    padding: 0px;
+  }
+
+  /* ===== MOBILE STAT CARD FIX ===== */
+
+  .stat-card {
+    padding: 12px;          /* smaller padding */
+    border-radius: 12px;
+    gap: 2px;               /* tighter spacing */
+  }
+
+  .stat-label {
+    font-size: 11px;        /* slightly smaller */
+  }
+
+  .stat-value {
+    font-size: 18px;        /* was 20px */
+    line-height: 1.2;
+  }
+
+  /* Make compare delta tighter */
+  .delta {
+    font-size: 11px;
+  }
+
+  .stats-grid {
+    gap: 10px;              /* tighter gap */
+  }
+
+  .stats-grid > .stat-card {
+    min-height: 90px;       /* balanced height */
+  }
+
+  /* ===== MOBILE RANGE PICKER FIX ===== */
+
+  .range-picker {
+    flex-direction: column;     /* stack vertically */
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .range-picker > div {
+    width: 100%;
+  }
+
+  /* ===== MOBILE APPLY BUTTON FIX ===== */
+
+  .btn-primary {
+    width: auto;              /* remove full width */
+    align-self: flex-start;       /* center it */
+    padding: 10px 22px;       /* balanced size */
+    min-width: 120px;
+    border-radius: 12px;
+  }
+
+  .canvas {
+    padding: 12px;   /* was 20px */
+  }
+}
+
+/* ===== RANGE PICKER ===== */
+
+.range-picker {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+}
+
+.range-picker label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.range-picker input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.btn-primary {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.range-picker input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  color: #111827;              /* 🔥 force readable text */
+  font-weight: 600;
+}
+
+/* Fix calendar icon (Chrome / Edge) */
+.range-picker input::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
+  cursor: pointer;
+}
+
+/* Focus clarity */
+.range-picker input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+}
+
+/* ===== COMPARE CARD ===== */
+
+.stat-card.compare {
+  gap: 6px;
+}
+
+.delta {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.delta.up {
+  color: #15803d;
+}
+
+.delta.down {
+  color: #b45309;
+}
+
+/* ===== GRID VARIANTS ===== */
+
+.stats-grid.four {
+  grid-template-columns: repeat(4, 1fr);
+}
+

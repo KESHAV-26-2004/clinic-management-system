@@ -1,0 +1,235 @@
+/* client/src/styles/settings.css */
+
+.settings-page {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;   /* 🔥 stack vertically */
+  align-items: center;      /* center horizontally */
+  gap: 30px;                /* space between cards */
+}
+
+.settings-card {
+  width: 520px;
+  border-radius: 24px;
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #0f172a;
+  overflow: hidden;
+}
+
+.avatar-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-upload-btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f766e;
+  cursor: pointer;
+}
+
+.avatar-upload-btn:hover {
+  text-decoration: underline;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.settings-row {
+  display: flex;
+  gap: 16px;
+}
+
+.settings-row input {
+  flex: 1;
+  width: 100%;
+}
+
+.settings-form input {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  background: #f9fafb;
+  color: #111827;   /* 🔥 FIXED WHITE TEXT */
+  transition: 0.2s;
+}
+
+.settings-form input::placeholder {
+  color: #9ca3af;
+}
+
+.settings-form input:focus {
+  outline: none;
+  border-color: #0f766e;
+  background: #ffffff;
+}
+
+.primary-btn {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: #0f766e;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.security-card {
+  margin-top: 30px;
+}
+
+.security-section {
+  padding: 20px;
+}
+
+.secondary-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #f1f5f9;
+  color: #111827;          /* 🔥 force dark text */
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: #e2e8f0;
+}
+
+.password-modal-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.password-field {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.password-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  padding-right: 46px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.password-field input::placeholder {
+  color: #94a3b8;
+}
+
+.password-field input:focus {
+  outline: none;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+.password-field button {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-field button:hover {
+  color: #0f766e;
+}
+
+.password-field button:focus {
+  outline: none;
+}
+
+.password-field button:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* ================= MOBILE SETTINGS FIX ================= */
+
+@media (max-width: 768px) {
+
+  .settings-page {
+    padding: 0px;           /* reduce outer spacing */
+    align-items: stretch;    /* remove center alignment */
+  }
+
+  .settings-card {
+    width: 100%;             /* full width card */
+    border-radius: 18px;
+  }
+
+  /* 🔥 First & Last Name stack vertically */
+  .settings-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .settings-row input {
+    width: 100%;
+  }
+
+  /* Make buttons full width */
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .password-modal-card {
+    width: 90%;              /* 🔥 not full width */
+    max-width: 400px;        /* keep nice proportion */
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .confirm-overlay {
+    padding: 0px;           /* breathing space from edges */
+  }
+
+}

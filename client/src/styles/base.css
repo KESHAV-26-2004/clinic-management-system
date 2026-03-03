@@ -1,0 +1,87 @@
+/*client/src/styles/base.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+button {
+  padding: 8px 12px;
+}
+
+/* ================= GLOBAL CARD ================= */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+/* ================= GLOBAL CANVAS ================= */
+.canvas {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* ================= GLOBAL PRIMARY BUTTON ================= */
+.primary-btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.primary-btn:hover {
+  background: #115e59;
+  border-color: #115e59;
+}
+
+/* ================= GLOBAL SECONDARY BUTTON ================= */
+.secondary-btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  background: #d1fae5;
+}
+
+@media (max-width: 768px) {
+
+  .visit-form .form-group,
+  .prescription-add-form,
+  .billing-add-form,
+  .payment-add-form,
+  .range-picker {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .primary-btn,
+  .add-payment-btn,
+  .add-billing-btn,
+  .add-prescription-btn,
+  .visit-form button {
+    width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 10px 12px;
+  }
+
+}

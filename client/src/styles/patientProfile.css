@@ -1,0 +1,1435 @@
+/* =========================================================
+   PATIENT PROFILE – CANVAS LAYOUT (SINGLE GLOBAL SCROLL)
+   ========================================================= */
+
+.patient-profile-page {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  background: #f8fafc;
+}
+
+/* ================= CANVAS ================= */
+
+.canvas {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.canvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.canvas-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.canvas-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease, color 0.2s ease;
+  outline: none;
+}
+
+/* remove ugly browser focus */
+.canvas-toggle:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* keyboard accessibility only */
+.canvas-toggle:focus-visible {
+  outline: 2px solid #94a3b8;
+  border-radius: 6px;
+}
+
+.workspace-arrow {
+  transition: transform 0.25s ease;
+}
+
+.workspace-arrow.collapsed {
+  transform: rotate(180deg);
+}
+
+/* ================= LEFT COLUMN ================= */
+
+.column-left {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+}
+
+.column-left .canvas {
+  margin: 0;                /* reset */
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+.column-left h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.column-left div {
+  font-size: 14px;
+  color: #374151;
+}
+
+.muted {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* ================= SEARCH ================= */
+
+.search {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #1f2937;
+  color: #ffffff;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+.search::placeholder {
+  color: #9ca3af;
+}
+
+.search-disabled {
+  cursor: not-allowed;
+  background: #f1f5f9;       /* soft disabled bg */
+  color: #9ca3af;            /* muted text */
+  opacity: 0.8;
+}
+
+.search-disabled::placeholder {
+  color: #9ca3af;
+}
+
+/* ================= ACTIONS ================= */
+
+/* ===== INLINE FORM BUTTON FIX (NO FLOAT / NO SHADOW) ===== */
+
+.inline-form .primary-btn {
+  box-shadow: none;
+}
+
+.inline-form .primary-btn:hover {
+  box-shadow: none;
+  background: #0d5f59;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-case { background: #0f766e; color: #fff; }
+.btn-visit { background: #2563eb; color: #fff; }
+.btn-history { background: #374151; color: #fff; }
+
+.btn-case:hover {
+  background: #0d5f59; /* slightly darker teal */
+}
+
+.btn-history:hover {
+  background: #1f2937; /* slightly darker gray */
+}
+
+.btn-visit:hover {
+  background: #1d4ed8;
+}
+
+.danger:hover {
+  background: #353535;
+}
+
+/* ================= CASE ================= */
+
+/* ===== STATIC ACTIVE CASE ===== */
+
+.case-header-static {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.case-header-static .case-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.case-header-static .case-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ===== ACTION BAR ===== */
+
+.case-actions-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.case-actions-bar button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* 🔥 arrow now vertically centered */
+  cursor: pointer;
+}
+
+.case-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.case-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.case-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+
+  /* 🔥 THIS is the real fix */
+  text-indent: 0;
+}
+
+.inline-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 8px;
+}
+
+/* ===== CASE TITLE INPUT (MATCH QUEUE / TOPBAR) ===== */
+
+.case-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f1f1f1;          /* 🔥 same as patient inputs */
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.case-input::placeholder {
+  color: var(--muted);
+}
+
+.case-input:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+.case-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.case-card.active {
+  background: #ecfeff;
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.badge {
+  background: #16a34a;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 8px 0;
+}
+
+.visit-item {
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;          /* 🔥 bold */
+  color: #111827;
+}
+
+.visit-item:hover {
+  background: #f1f5f9;
+}
+
+.visit-item.selected {
+  background: #f1f5f9;   /* SAME as hover */
+  font-weight: 600;
+  color: #111827;
+}
+
+.case-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.case-actions .danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ================= RIGHT COLUMN ================= */
+
+.column-right {
+  flex: 1;
+  padding: 16px;
+}
+
+/* ================= CENTER ================= */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  min-height: 200px;
+}
+
+/* ================= FOCUS MODE ================= */
+
+/* INNER CONTENT */
+.column-left-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  opacity: 1;
+  transform: translateX(0);
+
+  transition:
+    opacity 0.1s ease,
+    transform 0.25s ease;
+}
+
+/* COLLAPSING: content leaves AFTER width starts shrinking */
+.patient-profile-page.focus .column-left-inner {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition-delay: 0.001s;
+}
+
+.patient-profile-page:not(.focus) .column-left-inner {
+  transition-delay: 0.32s;
+}
+
+.column-left {
+  width: 360px;
+  transition:
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    padding 0.35s ease;
+}
+
+/* Collapsed */
+.patient-profile-page.focus .column-left {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/*
+.column-right {
+  flex: 1;
+  padding: 16px;
+  transition: padding 0.35s ease;
+}
+
+.patient-profile-page.focus .column-right {
+  padding-left: 24px;
+}
+*/
+
+
+/* ================= HISTORY ================= */
+
+.history h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Case container */
+.history-case-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+/* Case header */
+.history-case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.history-case-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.history-case-name {
+  font-size: 16px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Toggle */
+.history-toggle {
+  background: #e6f4f1;
+  color: #0f766e;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Visits list */
+.history-visits {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Visit card */
+.history-visit-card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.history-visit-card:hover {
+  background: #f1f5f9;
+}
+
+/* Date */
+.history-time {
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.history-sub {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-left: 4px;
+}
+
+/* ===== History arrow toggle ===== */
+
+.history-case-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.history-arrow {
+  font-size: 18px;
+  color: #6b7280;
+  transition: transform 0.25s ease;
+}
+
+.history-arrow.open {
+  transform: rotate(90deg);
+}
+
+/* ===== Case expand arrow (left column) ===== */
+
+.case-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.case-arrow {
+  font-size: 18px;
+  color: #6b7280;
+  transition: transform 0.25s ease;
+}
+
+.case-arrow.open {
+  transform: rotate(90deg);
+}
+
+/* ================= WORKSPACE FORM STYLES ================= */
+
+/* Inputs, textarea, select */
+.visit-form input,
+.visit-form textarea,
+.visit-form select,
+.prescriptions input,
+.payments input,
+.payments select,
+.billing input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f1f1f1;
+  outline: none;
+  font-size: 14px;
+  color: #111827;
+  transition: all 0.2s ease;
+}
+
+/* Placeholder */
+.visit-form input::placeholder,
+.visit-form textarea::placeholder,
+.prescriptions input::placeholder,
+.payments input::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus */
+.visit-form input:focus,
+.visit-form textarea:focus,
+.visit-form select:focus,
+.prescriptions input:focus,
+.payments input:focus,
+.payments select:focus,
+.billing input:focus {
+  border-color: #0f766e;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+}
+
+/* Textarea */
+.visit-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* ================= BUTTONS ================= */
+
+.visit-form button {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #0f766e;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Secondary buttons (Payments mode select stays neutral) */
+.payments select {
+  background: #f1f5f9;
+}
+
+.visit-form .form-group,
+.prescriptions > .prescription-add-form,
+.payments > div:not(.payment-add-form):not(.payment-summary) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* ===== History Load More ===== */
+
+.history-load-more {
+  background: none;
+  border: none;
+  color: #0f766e;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  padding-left: 4px;
+}
+
+.history-load-more:hover {
+  text-decoration: underline;
+}
+
+/* ================= VISIT REPORT ================= */
+
+.visit-report {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* -------- HEADER -------- */
+
+.visit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.visit-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.visit-meta {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Case / Standalone info */
+
+.visit-context {
+  text-align: right;
+}
+
+.label {
+  font-size: 12px;
+  color: #6b7280;
+  display: block;
+}
+
+.value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.standalone-badge {
+  background: #f1f5f9;
+  color: #374151;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* -------- SUMMARY -------- */
+
+.visit-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.summary-item {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.summary-item.full {
+  grid-column: 1 / -1;
+}
+
+.summary-item label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.summary-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #111827;
+}
+
+/* ===== Visit summary compact ===== */
+
+.visit-summary.compact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.summary-row .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.summary-row .value {
+  font-size: 14px;
+  color: #111827;
+}
+
+/* ================= PRESCRIPTIONS ================= */
+
+.prescriptions {
+  margin-top: 12px;
+}
+
+.prescription-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) auto;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.prescription-form button {
+  white-space: nowrap;
+}
+
+/* ================= PRESCRIPTIONS TABLE ================= */
+
+.prescription-add-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) auto;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.prescription-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.prescription-table thead {
+  background: #f8fafc;
+}
+
+.prescription-table th,
+.prescription-table td {
+  padding: 12px 14px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 14px;
+}
+
+.prescription-table th {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.prescription-table td {
+  color: #1f2937;
+}
+
+.prescription-table tr:last-child td {
+  border-bottom: none;
+}
+
+.prescription-table th:last-child,
+.prescription-table td:last-child {
+  border-right: none;
+}
+
+.prescription-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.prescription-table .empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 16px;
+}
+
+/* ===== Add Prescription Button ===== */
+
+.prescription-action {
+  display: flex;
+  align-items: end;
+  justify-content: flex-end; 
+}
+
+.add-prescription-btn {
+  height: 44px;                 /* match input height */
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.add-prescription-btn:hover {
+  background: #115e59;
+}
+
+.add-prescription-btn:active {
+  background: #0f766e;
+}
+
+/* ================= PAYMENTS ================= */
+
+.payments {
+  margin-top: 24px;
+}
+
+/* ===== PAYMENT SUMMARY (COMPACT) ===== */
+
+.payment-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.summary-card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px 10px;        /* 🔥 smaller */
+}
+
+.summary-card span {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.summary-card b {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;          /* 🔥 smaller */
+  font-weight: 700;
+}
+
+/* Status color hints */
+.summary-card.status.pending b {
+  color: #b45309;
+}
+
+.summary-card.status.paid b {
+  color: #15803d;
+}
+
+/* Partial payment */
+.summary-card.status.partial b {
+  color: #2563eb; /* blue-600 */
+}
+
+/* ===== ADD PAYMENT ===== */
+
+.payment-add-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.payment-add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.payment-add-form .add-payment-btn {
+  justify-self: end;   /* 🔥 THIS moves it right */
+}
+
+.add-payment-btn {
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  font-size:16x;
+  border: none;
+  cursor: pointer;
+}
+
+.add-payment-btn:hover {
+  background: #115e59;
+  transform: none;
+  box-shadow: none;
+}
+
+/* remove global hover effects */
+.payments .add-payment-btn:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== TABLE ===== */
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.payment-table thead {
+  background: #f8fafc;
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 14px;
+}
+
+.payment-table th {
+  font-weight: 600;
+}
+
+.payment-table tr:last-child td {
+  border-bottom: none;
+}
+
+.payment-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.payment-table .empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 16px;
+}
+
+/* ================= VISIT BILLING ================= */
+
+.billing {
+  margin-top: 12px;
+}
+
+/* ===== ADD BILLING ===== */
+
+.billing-add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.billing-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-billing-btn {
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-billing-btn:hover {
+  background: #115e59;
+}
+
+/* ===== BILLING TABLE ===== */
+
+.billing-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.billing-table thead {
+  background: #f8fafc;
+}
+
+.billing-table th,
+.billing-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 14px;
+}
+
+.billing-table th {
+  font-weight: 600;
+}
+
+.billing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.billing-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.billing-table .empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 16px;
+}
+
+.billing-remove {
+  background: none;
+  border: none;
+  color: #991b1b;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+
+.billing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.billing-total span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.billing-total b {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ================= BILLING ================= */
+
+.billing {
+  margin-top: 24px;
+}
+
+/* EXACT same structure as payment-add-form */
+.billing-add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.add-billing-btn {
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.add-billing-btn:hover {
+  background: #115e59;
+  transform: none;
+  box-shadow: none;
+}
+
+.billing-table th,
+.billing-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);   /* 🔥 ADD */
+  text-align: left;
+  font-size: 14px;
+}
+
+.billing-table th:last-child,
+.billing-table td:last-child {
+  border-right: none;   /* 🔥 CLEAN EDGE */
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);   /* 🔥 ADD */
+  text-align: left;
+  font-size: 14px;
+}
+
+.payment-table th:last-child,
+.payment-table td:last-child {
+  border-right: none;
+}
+
+/* Column sizing */
+.billing-table .col-sno {
+  width: 100px;
+}
+
+.billing-table .col-action {
+  width: 30px;
+}
+
+.billing-table .col-desc {
+  width: auto;
+}
+
+.billing-table .col-amount {
+  width: auto;
+}
+
+.billing-remove {
+  background: none;
+  border: none;
+  color: #dc2626;          /* red-600 */
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.billing-remove:hover {
+  color: #991b1b;          /* darker red */
+}
+
+/* ================= ACTION STYLE BUTTONS ================= */
+
+.action-btn {
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Teal action (New Case / Finalize Billing) */
+.action-btn.teal {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.action-btn.teal:hover {
+  background: #0d5f59;
+}
+
+/* Gray action (History / View Payments) */
+.action-btn.gray {
+  background: #374151;
+  color: #ffffff;
+}
+
+.action-btn.gray:hover {
+  background: #1f2937;
+}
+
+/* Space between payment summary and View Payments button */
+.payment-summary-mini + .btn-visit {
+  margin-top: 12px;
+}
+
+/* ================= CONFIRM MODAL ================= */
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background: rgba(0,0,0,0.3);
+}
+
+.confirm-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  width: 420px;
+  max-width: 90%;
+  animation: confirmPop 0.2s ease;
+}
+
+@keyframes confirmPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.confirm-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.confirm-card p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.confirm-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.confirm-btn.cancel {
+  background: #ffffff;
+  color: #374151;              /* dark gray text */
+  border: 1px solid #d1d5db;   /* visible subtle border */
+  transition: all 0.2s ease;
+}
+
+.confirm-btn.cancel:hover {
+  background: #f3f4f6;         /* light gray hover */
+  border-color: #9ca3af;       /* stronger border */
+}
+
+.confirm-btn.confirm {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.confirm-btn.confirm:hover {
+  background: #0d5f59;
+}
+
+.visit-context {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.visit-print-btn {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+@media (max-width: 768px) {
+
+  .workspace,
+  .column-right,
+  .column-left,
+  .column-left-inner {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* ================= REMOVE DESKTOP SPLIT LOGIC ON MOBILE ================= */
+
+  .patient-profile-page {
+    display: block;   /* 🔥 remove flex completely */
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+  }
+
+  .column-right .canvas {
+    margin-top: 16px; /* proper gap above workspace */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .column-left {
+    border-right: none;   /* 🔥 remove vertical divider */
+    padding: 0px;        /* reduce side spacing */
+  }
+
+  .column-right {
+    padding: 0px;        /* match left spacing */
+    width: 100%;
+  }
+
+  .patient-profile-page {
+    padding: 0;           /* remove outer side gap */
+  }
+
+  .patient-profile-page {
+    flex-direction: column;
+  }
+
+  /* ================= VISIT SUMMARY ================= */
+
+  .visit-summary,
+  .visit-summary.compact {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  /* ================= PAYMENT SUMMARY ================= */
+
+  .payment-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ================= ADD FORMS ================= */
+
+  .prescription-add-form,
+  .billing-add-form,
+  .payment-add-form,
+  .payment-add-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* ================= PATIENT PAYMENTS EXPAND ================= */
+
+  .patient-payments .pp-expanded {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .patient-payments .pp-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* ================= VISIT HEADER ================= */
+
+  .visit-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .visit-context {
+    align-items: flex-start;
+  }
+
+  /* ================= TABLE WRAPPERS ================= */
+  .Ptable-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .Ptable-scroll table {
+    min-width: 600px;
+  }
+
+  .history-sub {
+    display: none;
+  }
+
+  .visit-header h2 {
+    font-size: 20px;   /* was 22px */
+    font-weight: 600;  /* slightly lighter */
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .column-left {
+    padding: 0px 16px 0px 0px;
+  }
+
+  .column-right {
+    padding: 0px 0px 0px 16px;
+  }
+
+}

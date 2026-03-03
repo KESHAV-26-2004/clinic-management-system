@@ -1,0 +1,161 @@
+/* =========================================================
+   PATIENT PAYMENTS – FULLY ISOLATED & FIXED
+   ========================================================= */
+
+.patient-payments {
+  margin-top: 24px;
+}
+
+/* ================= CARD ================= */
+
+.patient-payments .pp-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+/* ================= HEADER ================= */
+
+.patient-payments .pp-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.patient-payments .pp-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.patient-payments .pp-header-right {
+  margin-left: auto;
+  text-align: right;
+  font-weight: 500;
+}
+
+.patient-payments .pp-sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.patient-payments .pp-time {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ================= ARROW ================= */
+
+.patient-payments .pp-arrow {
+  font-size: 18px;
+  color: #6b7280;
+  transition: transform 0.25s ease;
+}
+
+.patient-payments .pp-arrow.open {
+  transform: rotate(90deg);
+}
+
+/* ================= EXPAND ================= */
+
+.patient-payments .pp-expanded {
+  display: flex;
+  gap: 28px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.patient-payments .pp-left,
+.patient-payments .pp-right {
+  flex: 1;
+}
+
+/* ================= ROWS ================= */
+
+.patient-payments .pp-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.patient-payments .pp-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* ================= FORM ================= */
+
+.patient-payments .pp-form {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ================= INPUT + SELECT ================= */
+
+.patient-payments input,
+.patient-payments select {
+  height: 36px;                     /* 🔥 smaller */
+  padding: 6px 10px;                /* 🔥 compact */
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  font-size: 14px;
+  color: #111827;                   /* 🔥 FIX VISIBILITY */
+  outline: none;
+}
+
+/* Force select arrow + text visibility */
+.patient-payments select {
+  appearance: auto;
+  background-color: #f8fafc;
+  color: #111827;
+}
+
+/* Focus */
+.patient-payments input:focus,
+.patient-payments select:focus {
+  background: #ffffff;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 2px rgba(15,118,110,0.15);
+}
+
+/* ================= BUTTON ================= */
+
+.patient-payments .pp-btn {
+  height: 36px;                     /* 🔥 match inputs */
+  padding: 0 14px;
+  border-radius: 10px;
+  background: #0f766e;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.patient-payments .pp-btn:hover {
+  background: #115e59;
+}
+
+.pp-error {
+  color: #b91c1c;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.pp-status {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.pp-status.pending { color: #b45309; }
+.pp-status.partial { color: #2563eb; }
+.pp-status.paid { color: #15803d; }
