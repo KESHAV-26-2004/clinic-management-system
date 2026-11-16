@@ -16,6 +16,14 @@
 
 </p>
 
+<p align="center">
+  <a href="https://keshav-developer.vercel.app/projects/clinic-management-system">
+    <img src="https://img.shields.io/badge/Live_Case_Study-keshav--developer.vercel.app-blue?style=for-the-badge&logo=vercel" alt="Live Case Study" />
+  </a>
+</p>
+
+> 🚀 **Live Case Study & Performance Architecture:** Read the complete technical breakdown and benchmarks at [keshav-developer.vercel.app/projects/clinic-management-system](https://keshav-developer.vercel.app/projects/clinic-management-system).
+
 ---
 
 # 📌 Overview
@@ -364,13 +372,18 @@ Sensitive files excluded from repository:
 
 Developed a **full-stack Clinic Management System** using React and Node.js with **role-based access control, queue workflow, visit tracking, billing/payment integration, and secure HTTPS backend deployment**.
 
+* **Live Engineering Case Study:** [https://keshav-developer.vercel.app/projects/clinic-management-system](https://keshav-developer.vercel.app/projects/clinic-management-system)
+* **Developer Portfolio:** [https://keshav-developer.vercel.app/](https://keshav-developer.vercel.app/)
+
 ---
 
-# 👨‍💻 Author
+# 👨💻 Author
 
-**Keshav Verma**
-B.Tech CSE
-Full-Stack Developer
+**Keshav Verma**  
+B.Tech CSE, Bennett University  
+Full-Stack Developer & AI Engineer  
+Website: [keshav-developer.vercel.app](https://keshav-developer.vercel.app/)  
+GitHub: [@KESHAV-26-2004](https://github.com/KESHAV-26-2004)
 
 ---
 
